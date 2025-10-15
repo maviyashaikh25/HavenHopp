@@ -1,0 +1,137 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="filter-container">
+  <div class="filters">
+    <a
+      class="filter <%= currentCategory === 'all' ? 'active-filter' : '' %>"
+      href="/listings"
+    >
+      <div><i class="fa-solid fa-list-ul"></i></div>
+      <p>All</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'trending' ? 'active-filter' : '' %>"
+      href="/listings?category=trending"
+    >
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'rooms' ? 'active-filter' : '' %>"
+      href="/listings?category=rooms"
+    >
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'cities' ? 'active-filter' : '' %>"
+      href="/listings?category=cities"
+    >
+      <div><i class="fa-solid fa-building-columns"></i></div>
+      <p>Iconic Cities</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'mountains' ? 'active-filter' : '' %>"
+      href="/listings?category=mountains"
+    >
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'castles' ? 'active-filter' : '' %>"
+      href="/listings?category=castles"
+    >
+      <div><i class="fa-solid fa-chess-rook"></i></div>
+      <p>Castles</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'pools' ? 'active-filter' : '' %>"
+      href="/listings?category=pools"
+    >
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Amazing Pools</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'camping' ? 'active-filter' : '' %>"
+      href="/listings?category=camping"
+    >
+      <div><i class="fa-solid fa-tent"></i></div>
+      <p>Camping</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'farms' ? 'active-filter' : '' %>"
+      href="/listings?category=farms"
+    >
+      <div><i class="fa-solid fa-cow"></i></div>
+      <p>Farms</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'arctic' ? 'active-filter' : '' %>"
+      href="/listings?category=arctic"
+    >
+      <div><i class="fa-solid fa-snowflake"></i></div>
+      <p>Arctic</p>
+    </a>
+    <a
+      class="filter <%= currentCategory === 'beach' ? 'active-filter' : '' %>"
+      href="/listings?category=beach"
+    >
+      <div><i class="fa-solid fa-umbrella-beach"></i></div>
+      <p>Beach</p>
+    </a>
+  </div>
+
+  <div class="tax-toggle">
+    <div class="form-check-reverse form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckDefault"
+      />
+      <label class="form-check-label" for="flexSwitchCheckDefault"
+        >Display Total After Taxes</label
+      >
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
+    <% if (allListings.length === 0) { %>
+    <div class="col-12 text-center mt-5">
+      <h4>No listings found in this category.</h4>
+    </div>
+    <% } else { %> <% for (let listing of allListings) { %>
+    <div class="col">
+      <div class="card h-80">
+        <a href="/listings/<%= listing._id %>" class="listinglink">
+          <img
+            src="<%= listing.image?.url || '/images/default.jpg' %>"
+            class="card-img-top"
+            alt="listing image"
+            style="height: 20rem; object-fit: cover"
+          />
+        </a>
+        <div class="card-body">
+          <h5 class="card-title"><%= listing.title %></h5>
+          <p class="card-text text-muted">
+            ₹<%= listing.price.toLocaleString("en-IN") %>/night
+            <i class="tax">&nbsp;+18% gst</i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <% } %> <% } %>
+  </div>
+</div>
+
+<script>
+  let taxswitch = document.getElementById("flexSwitchCheckDefault");
+  let tax = document.getElementsByClassName("tax");
+  taxswitch.addEventListener("click", () => {
+    for (let ele of tax) {
+      ele.classList.toggle("show-tax");
+    }
+  });
+</script>

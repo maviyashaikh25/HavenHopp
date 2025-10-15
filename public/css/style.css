@@ -1,0 +1,372 @@
+/* --- COLOR PALETTE & VARIABLES --- */
+:root {
+  --brand-primary: #fe424d;
+  --brand-hover: #e33b47;
+  --brand-active: #c7343e;
+  --brand-light: #fbe6e7;
+  --text-color: #333333;
+  --body-bg: #f7f7f7;
+  --component-bg: #ffffff;
+
+  --spacing-md: 1.5rem;
+  --spacing-sm: 1rem;
+  --border-radius: 0.5rem;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex-grow: 1;
+}
+
+.container {
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+}
+
+.navbar {
+  background-color: var(--component-bg) !important;
+  box-shadow: var(--shadow-sm);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+}
+
+.navbar-brand {
+  color: var(--brand-primary) !important;
+}
+
+.ser {
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  border: 1.5px solid #ced4da;
+  box-shadow: 5px 5px 18px ghostwhite;
+  transition: all 0.2s ease-in-out;
+  width: 30rem;
+}
+.ser:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.15rem var(--brand-light);
+}
+
+.btn-search {
+  display: flex;
+  /* Vertically centers the items if they have different heights */
+  align-items: center;
+  /* Optional: Adds space between the input and button */
+  gap: 10px;
+  background-color: var(--brand-primary);
+  color: var(--component-bg);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+.btn-search:hover {
+  background-color: var(--brand-hover);
+  color: var(--component-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-search:active {
+  background-color: var(--brand-active);
+  box-shadow: none;
+}
+
+.btn {
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease-in-out;
+  box-shadow: var(--shadow-sm);
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+}
+
+/* Primary Brand Button */
+.btn-primary {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--brand-hover);
+  border-color: var(--brand-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.btn-primary:active {
+  background-color: var(--brand-active);
+  border-color: var(--brand-active);
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Dark Button */
+.btn-dark {
+  background-color: var(--text-color);
+  border-color: var(--text-color);
+  color: white;
+}
+.btn-dark.custom-border:hover {
+  border-color: #fe424d;
+  box-shadow: var(--shadow-md);
+}
+.btn-dark:active {
+  background-color: #222;
+  border-color: #222;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* --- FLASH MESSAGES (Alerts) --- */
+.alert {
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  border: none;
+  box-shadow: var(--shadow-sm);
+  font-weight: 500;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* --- CARDS & LISTING CARDS --- */
+.card {
+  border: none;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  margin-bottom: var(--spacing-md);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-img-top {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.listinglink {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.card.shadow-lg {
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* --- FORMS (Create/Edit/Review) --- */
+.form-control {
+  border-radius: 0.35rem;
+  padding: 0.65rem 0.75rem;
+}
+
+.form-control:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.25rem rgba(254, 66, 77, 0.25);
+}
+
+/* --- FILTER BAR STYLING (Home.ejs) --- */
+
+/* Main Container for Filters and Switch */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Container for all individual filter icons */
+.filters {
+  display: flex;
+  gap: 2rem;
+  flex-shrink: 0;
+}
+
+/* Individual Filter Styling (The anchor tag) */
+.filter {
+  text-decoration: none;
+  color: var(--text-color);
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0.3rem;
+  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out,
+    border-bottom 0.2s;
+}
+
+/* Icon size and spacing between icon and text */
+.filter i {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Text styling for the filter label */
+.filter p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Hover and Active State */
+.filter:hover {
+  opacity: 1;
+  color: var(--text-color);
+}
+.filter.active {
+  opacity: 1;
+  color: var(--text-color) !important;
+  border-bottom: 2px solid var(--text-color);
+}
+
+/* Tax Toggle Switch Styling (The container holding the switch) */
+.tax-toggle {
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow-sm);
+  background-color: var(--component-bg);
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+.tax-toggle label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-check-input:checked {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+/* --- FOOTER STYLING --- */
+
+/* General Footer Container */
+.f-info {
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+  padding: var(--spacing-sm) 0;
+  margin-top: var(--spacing-md);
+  border-top: 1px solid #e0e0e0;
+  color: #6c757d;
+}
+
+/* Links Container */
+.f-info-links {
+  width: 100%;
+}
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+}
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+/* Socials Container */
+.f-info-socials {
+  width: 100%;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.f-info-socials i {
+  margin: 0 0.5rem;
+}
+.fa-brands:hover {
+  color: var(--text-color);
+}
+
+.button-content {
+  display: inline-flex;
+  gap: 5px;
+}
+.lgt:hover {
+  border: 2px solid #fe424d !important;
+  box-shadow: 2px 2px 2px rgb(69, 49, 49);
+  background-color: white;
+}
+
+#lgt:active {
+  background-color: white;
+}
+
+.ayh:hover {
+  text-shadow: 1px 1px 15px #ede2e2;
+}
+
+.cardbox {
+  background-color: #ffffff;
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 40px 30px;
+  width: 450px;
+  text-align: center;
+}
+.lgbtn {
+  width: 390px;
+  border-radius: 15rem;
+}
+
+.filter.active-filter {
+  border-bottom: 3px solid #ff385c;
+  color: #ff385c;
+}
+.tax {
+  display: none;
+}
+.tax.show-tax {
+  display: inline;
+}
+
+#map {
+  height: 400px;
+  width: 80vh;
+}
+
+.btn:focus,
+.btn:active,
+.btn:focus:active {
+  background-color: #fe424d;
+  border-color: #fe424d;
+  box-shadow: none;
+}

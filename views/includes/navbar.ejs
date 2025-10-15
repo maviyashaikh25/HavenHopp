@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-md bg-body-light sticky-top border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass fa-lg"></i>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <div class="input-group">
+          <form
+            class="d-flex"
+            role="search"
+            action="/listings/search"
+            method="GET"
+            novalidate
+          >
+            <input
+              class="form-control me-2 ser rounded-start-pill"
+              type="search"
+              name="q"
+              placeholder="Search Your Destination"
+              aria-label="Search"
+              required
+            />
+            <button
+              class="btn ms-auto btn-search rounded-end-pill"
+              type="submit"
+            >
+              <span class="button-content d-flex align-items-center">
+                Search <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a
+          class="nav-link ayh"
+          href="/listings/new"
+          style="white-space: nowrap; font-weight: 400"
+        >
+          Airbnb Your Home
+        </a>
+
+        <% if (!currentUser) { %>
+        <a
+          class="nav-link btn btn-primary text-white me-2"
+          href="/login"
+          style="padding: 0.5rem 1rem"
+          >Login</a
+        >
+        <a
+          class="nav-link btn btn-secondary text-dark custom-active-white lgt"
+          id="lgt"
+          href="/signup"
+          style="padding: 0.5rem 1rem"
+          >Sign Up</a
+        >
+        <% } else { %>
+        <a
+          class="nav-link btn btn-secondary text-dark lgt"
+          href="/logout"
+          style="padding: 0.5rem 1rem"
+          >Log Out</a
+        >
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
