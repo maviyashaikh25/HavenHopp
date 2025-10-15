@@ -1,7 +1,7 @@
 const User = require("../models/User");
 
 module.exports.renderSignup = (req, res) => {
-  res.render("user/Signup");
+  res.render("User/Signup");
 };
 
 module.exports.signup = async (req, res) => {
@@ -25,7 +25,7 @@ module.exports.renderLogin = (req, res) => {
     console.log("Saving redirect URL:", req.query.returnTo);
     req.session.redirectUrl = req.query.returnTo;
   }
-  res.render("user/Login");
+  res.render("User/Login");
 };
 
 module.exports.login = (req, res) => {
