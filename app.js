@@ -30,7 +30,7 @@ mongoose
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "..", "views"));
+app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
@@ -84,7 +84,7 @@ app.all(/.*/, (req, res, next) => {
 app.use((err, req, res, next) => {
   const { statusCode = 500 } = err;
   if (!err.message) err.message = "Something went wrong!";
-  res.status(statusCode).render("error.ejs", { err });
+  res.status(statusCode).render("Error.ejs", { err });
 });
 
 const port = process.env.PORT || 8080;
