@@ -36,7 +36,7 @@ module.exports.showListing = async (req, res) => {
     return res.redirect("/listings");
   }
 
-  res.render("listings/show", { listing });
+  res.render("listings/Show", { listing });
 };
 
 module.exports.createListingForm = (req, res) => {
